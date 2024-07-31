@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - crossword
+  - TrackingObject
+  - Actors
+  - moon
+  - rock
+  - earth
   layers:
   - Default
   - TransparentFX
