@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 
 public class MoonMove : MonoBehaviour
 {
@@ -9,8 +9,14 @@ public class MoonMove : MonoBehaviour
    private int Count =0;
    public int speed;   // the speed of rotation
 
+   
+    [SerializeField] TextMeshProUGUI ScoreText;
+   
+    [SerializeField] static int CounterScore =0;
+
 void Start()
  {
+    CounterScore =0;
     if (target == null) 
     {
         target = this.gameObject.transform;
@@ -21,35 +27,37 @@ void Start()
 // Update is called once per frame
 void Update () 
 {
-transform.RotateAround(target.transform.position,target.transform.forward,speed * Time.deltaTime);
+  Vector3 newPos = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,-1);
+  transform.RotateAround(target.transform.position,target.transform.forward,speed * Time.deltaTime);
 }
 
 
 public void LeftClick()
 {
-    if(speed>0)
-    {
-        speed =0;
-    }
-    speed = speed -50;
-    if(speed < -200)
-    {
-        speed =-200;
-    }
+    
+    speed = 175;
+   
 }
 
 public void RightClick()
 {
-    if(speed<0)
-    {
-        speed =0;
-    }
-    speed = speed +50;
-    if(speed > 200)
-    {
-        speed =200;
-    }
+   
+    speed = -175;
 }
+
+
+
+    public void OnCollisionEnter(Collision Object)
+    {
+        if(Object.transform.tag == "rock")
+        {
+             CounterScore+=1;
+             ScoreText.text = CounterScore.ToString();
+             Destroy(Object.gameObject);
+             Debug.Log(CounterScore);
+        }
+       
+    }
 }
 
 

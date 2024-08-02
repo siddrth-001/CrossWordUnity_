@@ -367,6 +367,7 @@
 "Assets/SimpleCollectiblesPack/SimpleCollectibleScript.cs"
 "Assets/__Assignment/Scripts/attrackAstro.cs"
 "Assets/__Assignment/Scripts/attractionToEarth.cs"
+"Assets/__Assignment/Scripts/EarthSmash.cs"
 "Assets/__Assignment/Scripts/MoonMove.cs"
 -langversion:9.0
 /deterministic

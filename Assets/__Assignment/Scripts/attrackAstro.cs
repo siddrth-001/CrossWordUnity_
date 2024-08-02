@@ -23,21 +23,21 @@ public class attrackAstro : MonoBehaviour
 
     public void SpawnNew()
     {
-         int randomIndex = Random.Range(0, gamePrefabs.Length);
-         Instantiate(gamePrefabs[randomIndex], SpawnPoint.position, SpawnPoint.rotation);
-         Invoke("SpawnNew", Random.Range(5,10));
+        int randomIndex = Random.Range(0, gamePrefabs.Length);
+        Instantiate(gamePrefabs[randomIndex], SpawnPoint.position, SpawnPoint.rotation);
+        Invoke("SpawnNew", Random.Range(5,10));
     }
 
     public void PointOne()
     {
         int TimeOne =Random.Range(8,13);
-        gameObject.transform.DOMove(new Vector3(SpawnPoint.position.x,24,0),TimeOne);
+        gameObject.transform.DOMove(new Vector3(SpawnPoint.position.x,24,-1),TimeOne);
         Invoke("PointTwo",TimeOne);
     }
     public void PointTwo()
     {
         int TimeTwo =Random.Range(8,13);
-        gameObject.transform.DOMove(new Vector3(SpawnPoint.position.x,-3,0),TimeTwo);
+        gameObject.transform.DOMove(new Vector3(SpawnPoint.position.x,-3,-1),TimeTwo);
         Invoke("PointOne",TimeTwo);
     }
 }
